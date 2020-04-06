@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="temp/head.xhtml"/>
+<body>
+<ui:include src="temp/user-nav.xhtml"/>
+<main>
+    <h1 class="text-center mt-2">Delete Hero</h1>
+    <hr class="hr-3"/>
+    <h:form class="mx-auto w-15">
+        <div class="form-group">
+            <div class="label-holder d-flex justify-content-center text-white">
+                <h:outputLabel for="name" class="h3 mb-2" value="Name"/>
+            </div>
+            <h:inputText class="form-control" id="name" name="name" value="#{heroDetailsBean.hero.name}" disabled="true"/>
+        </div>
+        <div class="form-group">
+            <div class="label-holder d-flex justify-content-center text-white">
+                <h:outputLabel for="heroClass" class="h3 mb-2" value="Hero class"/>
+            </div>
+            <h:outputLabel class="form-control" id="heroClass" name="heroClass" value="#{heroDetailsBean.hero.clazz}" disabled="true"/>
+        </div>
+        <div class="form-group">
+            <div class="label-holder d-flex justify-content-center text-white">
+                <h:outputLabel for="level" class="h3 mb-2" value="Level"/>
+            </div>
+            <h:inputText type="number" class="form-control" id="level" name="level" value="#{heroDetailsBean.hero.level}" disabled="true"/>
+        </div>
+        <div class="button-holder d-flex justify-content-center">
+            <h:commandButton class="btn btn-danger text-white mb-3" value="Delete Hero" action="#{heroDeleteBean.delete()}"/>
+        </div>
+    </h:form>
+</main>
+<ui:include src="temp/footer.xhtml"/>
+</body>
+</html>

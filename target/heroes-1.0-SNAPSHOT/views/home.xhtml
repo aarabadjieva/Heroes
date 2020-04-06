@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:include src="temp/head.xhtml"/>
+<body>
+<ui:include src="temp/user-nav.xhtml"/>
+<main>
+    <h:form>
+    <div class="text-center mb-3">
+        <h4 class="text-white mt-2">Welcome to the arena, #{session.getAttribute('username')}</h4>
+    </div>
+    <hr class="my-3"/>
+    <div class="container">
+        <div class="row mb-4 d-flex justify-content-around">
+            <ui:repeat value="#{homeBean.heroes}" var="hero">
+            <div class="col-md-3 d-flex flex-column text-center mb-3">
+                <h:graphicImage library="img" name="#{hero.clazz}.jpg" class="img-thumb" width="300" height="300"/>
+                <h5 class="text-white text-center">#{hero.name}</h5>
+                <h:link styleClass="btn btn-info mb-2" value="Details" outcome="details-hero?name=#{hero.name}"/>
+                <h:commandLink class="btn btn-danger" styleClass="text-white" value="Delete" action="#{homeBean.deleteHero(hero.name)}"/>
+            </div>
+            </ui:repeat>
+    </div>
+    </div>
+    </h:form>
+</main>
+<span style="visibility: hidden">...</span>
+<ui:include src="temp/footer.xhtml"/>
+</body>
+</html>
